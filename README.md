@@ -3,8 +3,8 @@ library(dplyr)
 library(readr)
 library(tidyverse)
 # setear directorio de trabajo (ajusta a tu ruta)
-setwd("C:\\Users\\Juli ❤️\\Documents\\analitica")
-
+setwd("C:/Users/claud/OneDrive/Documentos")
+getwd()
 # Leer el archivo CSV
 
 concerts <- read_csv("concerts.csv")
@@ -21,7 +21,7 @@ summary_stats <- concerts %>%
     coef_variacion = sd(net_sales, na.rm = TRUE) / mean(net_sales, na.rm = TRUE)
   )
 print(summary_stats)
-<<<<<<< Updated upstream
+
 
 # matriz de correlacion
 concerts <- concerts %>%
@@ -39,11 +39,6 @@ cor_matrix <- concerts %>%
 
 print(cor_matrix)
 
-<<<<<<< Updated upstream
-summary_stats
-=======
->>>>>>> Stashed changes
-=======
 
 # matriz de correlacion
 concerts <- concerts %>%
@@ -61,4 +56,10 @@ cor_matrix <- concerts %>%
 
 print(cor_matrix)
 
->>>>>>> Stashed changes
+ggplot(concerts, aes(x = unemployment, y = net_sales)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", se = TRUE) +
+  labs(title = "Relación entre net_sales y unemployment",
+       x = "unemployment", y = "net_sales") +
+  theme_minimal()
+  #La gráfica sugiere que existe una relación negativa entre el desempleo y las ventas netas: cuando el desempleo aumenta, las ventas tienden a disminuir. Sin embargo, la dispersión de los puntos indica que el desempleo por sí solo probablemente no explique gran parte de la variación en las ventas, por lo que, aunque podría ser un predictor estadísticamente significativo, su poder explicativo sería limitado y sería recomendable considerar otras variables adicionales en el análisis.
